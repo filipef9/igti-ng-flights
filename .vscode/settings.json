@@ -1,0 +1,44 @@
+{
+    "editor.autoIndent": "full",
+    "editor.codeLens": false,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorStyle": "line",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": false,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Code Retina', Consolas, monospace",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "stylelint.enable": true,
+    "tslint.autoFixOnSave": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.iconTheme": "vscode-icons",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/bazel-out/**": true,
+        "**/dist/**": true,
+        "**/aio/src/generated/**": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/bazel-out": true,
+        "**/dist": true,
+        "**/aio/src/generated": true,
+        ".history": true,
+    },
+    "git.ignoreLimitWarning": true,
+}
