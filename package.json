@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npx ng serve --disable-host-check --host 0.0.0.0",
+    "json-server": "npx json-server --watch countries.json --port 3001",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -36,6 +37,7 @@
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
+    "json-server": "^0.17.0",
     "karma": "~5.0.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
