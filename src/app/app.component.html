@@ -1,14 +1,10 @@
 <div class="container m-5">
   <div id="definir-voo">
-    <form>
+    <form [formGroup]="definirVooForm">
       <div class="form-group">
         <label for="paisDeOrigem">País de origem:</label>
-        <select class="form-control" id="paisDeOrigem">
-          <option>Brasil</option>
-          <option>Estados Unidos</option>
-          <option>Alemanha</option>
-          <option>México</option>
-          <option>Espanha</option>
+        <select id="paisDeOrigem" class="form-control" formControlName="paisDeOrigem">
+          <option *ngFor="let country of countries" [ngValue]="country.id">{{ country.country }}</option>
         </select>
       </div>
 
