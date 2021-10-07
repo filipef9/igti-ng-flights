@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
   }
 
   private setDefaultsDefinirVooForm(): void {
+    this.definirVooForm.get('paisDeOrigem').patchValue(this.defaultCountryId);
   }
 
 }
