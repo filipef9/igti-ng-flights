@@ -1,4 +1,4 @@
-# igti-ngviagens
+# igti-ng-flights
 IGTI - Bootcamp Desenvolvedor Frontend - Desafio Final
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
