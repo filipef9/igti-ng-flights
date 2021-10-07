@@ -21,12 +21,8 @@
 
       <div class="form-group">
         <label for="paisDeDestino">País de destino:</label>
-        <select class="form-control" id="paisDeDestino">
-          <option>Canadá</option>
-          <option>Japão</option>
-          <option>Inglaterra</option>
-          <option>China</option>
-          <option>Rússia</option>
+        <select id="paisDeDestino" class="form-control" formControlName="paisDeDestino">
+          <option *ngFor="let country of countries" [ngValue]="country.id">{{ country.country }}</option>
         </select>
       </div>
 

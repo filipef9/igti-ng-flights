@@ -21,12 +21,12 @@ export class AppComponent implements OnInit {
     private fb: FormBuilder
   ) { 
     this.definirVooForm = this.fb.group({
-      paisDeOrigem: [null]
+      paisDeOrigem: [null],
+      paisDeDestino: [null]
     });
   }
 
   ngOnInit(): void {
-
     this.countriesService
       .findAll()
       .subscribe((data: Country[]) => {
@@ -38,11 +38,11 @@ export class AppComponent implements OnInit {
 
         this.setDefaultsDefinirVooForm();
     });
-
   }
 
   private setDefaultsDefinirVooForm(): void {
     this.definirVooForm.get('paisDeOrigem').patchValue(this.defaultCountryId);
+    this.definirVooForm.get('paisDeDestino').patchValue(this.defaultCountryId);
   }
 
 }
