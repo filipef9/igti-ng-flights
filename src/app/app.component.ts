@@ -32,6 +32,8 @@ export class AppComponent implements OnInit {
 
   tipoVoo: string;
 
+  precoPorAdulto: number;
+
   definirVooForm: FormGroup;
 
   showResumoVoo: boolean;
@@ -115,12 +117,21 @@ export class AppComponent implements OnInit {
       this.selectedCityTo.longitude
     );
 
+    if (this.selectedCountryFrom.id === this.selectedCountryTo.id) {
+      this.precoPorAdulto = this.distance * 0.3;
+    }
+
+    if (this.selectedCountryFrom.id !== this.selectedCountryTo.id) {
+      this.precoPorAdulto = this.distance * 0.5;
+    }
+
     if (flightForm.tipoVoo === 'classeEconomica') {
       this.tipoVoo = 'Classe Econômica';
     }
 
     if (flightForm.tipoVoo === 'classeExecutiva') {
       this.tipoVoo = 'Classe Executiva';
+      this.precoPorAdulto *= 1.8;
     }
 
     this.showResumoVoo = true;
