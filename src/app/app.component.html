@@ -33,17 +33,17 @@
         <div class="col-6">
           <div>Adultos:</div>
           <div>
-            <button class="btn btn-primary">-</button>
-            <span class="mx-2">1</span>
-            <button class="btn btn-primary">+</button>
+            <button type="button" class="btn btn-primary" (click)="decrementarQuantidadeAdultos()">-</button>
+            <span class="mx-2">{{ quantidadeAdultos }}</span>
+            <button type="button" class="btn btn-primary" (click)="incrementarQuantidadeAdultos()">+</button>
           </div>
         </div>
         <div class="col-6">
           <div>Crianças:</div>
           <div>
-            <button class="btn btn-primary">-</button>
-            <span class="mx-2">1</span>
-            <button class="btn btn-primary">+</button>
+            <button type="button" class="btn btn-primary" (click)="decrementarQuantidadeCriancas()">-</button>
+            <span class="mx-2">{{ quantidadeCriancas }}</span>
+            <button type="button" class="btn btn-primary" (click)="incrementarQuantidadeCriancas()">+</button>
           </div>
         </div>
       </div>
@@ -98,6 +98,10 @@
       <div class="col-7">
         <span>{{ distance }} km</span>
       </div>
-    </div>    
+    </div>
+    
+    <div>
+      <span>{{ quantidadeAdultos }} adultos(s), {{ quantidadeCriancas }} criança(s)</span>
+    </div>
   </div>
 </div>

@@ -26,6 +26,9 @@ export class AppComponent implements OnInit {
 
   distance: number;
 
+  quantidadeAdultos: number;
+  quantidadeCriancas: number;
+
   definirVooForm: FormGroup;
 
   showResumoVoo: boolean;
@@ -40,6 +43,10 @@ export class AppComponent implements OnInit {
       idPaisDeDestino: [null],
       idCidadeDeDestino: [null]
     });
+
+    this.distance = 0;
+    this.quantidadeAdultos = 1;
+    this.quantidadeCriancas = 0;
 
     this.showResumoVoo = false;
   }
@@ -143,6 +150,26 @@ export class AppComponent implements OnInit {
 
   private degreesToRadians(degrees: number): number {
     return (degrees * Math.PI) / 180.0;
+  }
+
+  incrementarQuantidadeAdultos(): void {
+    this.quantidadeAdultos++;
+  }
+
+  decrementarQuantidadeAdultos(): void {
+    if (this.quantidadeAdultos > 0) {
+      this.quantidadeAdultos--;
+    }
+  }
+
+  incrementarQuantidadeCriancas(): void {
+    this.quantidadeCriancas++;
+  }
+
+  decrementarQuantidadeCriancas(): void {
+    if (this.quantidadeCriancas > 0) {
+      this.quantidadeCriancas--;
+    }
   }
 
 }
