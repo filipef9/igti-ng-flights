@@ -24,12 +24,8 @@
 
       <div class="form-group">
         <label for="cidadeDeDestino">Cidade de destino:</label>
-        <select class="form-control" id="cidadeDeDestino">
-          <option>Montreal</option>
-          <option>Vancouver</option>
-          <option>Toronto</option>
-          <option>Montreal</option>
-          <option>Quebec City</option>
+        <select id="cidadeDeDestino" class="form-control" formControlName="cidadeDeDestino">
+          <option *ngFor="let city of citiesTo" [ngValue]="city.id">{{ city.city }}</option>
         </select>
       </div>
 

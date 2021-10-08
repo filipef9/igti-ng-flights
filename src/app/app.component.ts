@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
     this.definirVooForm = this.fb.group({
       paisDeOrigem: [null],
       cidadeDeOrigem: [null],
-      paisDeDestino: [null]
+      paisDeDestino: [null],
+      cidadeDeDestino: [null]
     });
   }
 
@@ -40,26 +41,32 @@ export class AppComponent implements OnInit {
           .find((country: Country) => country.country === 'Brasil')
           .id;
 
-        this.citiesFrom = this.countries.find((c: Country) => c.id === this.defaultCountryId).cities;
+        const defaultCountry: Country = this.countries.find((c: Country) => c.id === this.defaultCountryId);
+        this.citiesFrom = defaultCountry.cities;
+        this.citiesTo = defaultCountry.cities;
 
         this.setDefaultsDefinirVooForm();
     });
   }
 
   private setDefaultsDefinirVooForm(): void {
-    const defaultCityId = this.citiesFrom[0].id;
-
     this.definirVooForm.get('paisDeOrigem').patchValue(this.defaultCountryId);
     this.definirVooForm.get('paisDeOrigem').valueChanges
-      .subscribe((countryId: string) => {
-        this.citiesFrom = this.onCountryChanged(countryId);
-        this.definirVooForm.get('cidadeDeOrigem').patchValue(this.citiesFrom[0].id);
-      });
+    .subscribe((countryId: string) => {
+      this.citiesFrom = this.onCountryChanged(countryId);
+      this.definirVooForm.get('cidadeDeOrigem').patchValue(this.citiesFrom[0].id);
+    });
 
     this.definirVooForm.get('paisDeDestino').patchValue(this.defaultCountryId);
+    this.definirVooForm.get('paisDeDestino').valueChanges
+    .subscribe((countryId: string) => {
+      this.citiesTo = this.onCountryChanged(countryId);
+      this.definirVooForm.get('cidadeDeDestino').patchValue(this.citiesTo[0].id);
+    });
 
+    const defaultCityId = this.citiesFrom[0].id;
     this.definirVooForm.get('cidadeDeOrigem').patchValue(defaultCityId);
-
+    this.definirVooForm.get('cidadeDeDestino').patchValue(defaultCityId);
   }
 
   private onCountryChanged(countryId: string): City[] {
