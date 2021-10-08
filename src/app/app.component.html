@@ -10,12 +10,8 @@
 
       <div class="form-group">
         <label for="cidadeDeOrigem">Cidade de origem:</label>
-        <select class="form-control" id="cidadeDeOrigem">
-          <option>Brasília</option>
-          <option>São Paulo</option>
-          <option>Rio de Janeiro</option>
-          <option>Espírito Santo</option>
-          <option>Minas Gerais</option>
+        <select id="cidadeDeOrigem" class="form-control" formControlName="cidadeDeOrigem">
+          <option *ngFor="let city of citiesFrom" [ngValue]="city.id">{{ city.city }}</option>
         </select>
       </div>
 

@@ -5,29 +5,34 @@
         "country": "Brasil",
         "cities": [
             {
+                "id": "18310429-9d52-4f6c-9013-ac29f71698bc",
                 "city": "São Paulo",
                 "latitude": -23.54,
                 "longitude": -46.64
             },
             {
-                "city": "Gramado",
-                "latitude": -29.36,
-                "longitude": -50.87
+              "id": "e5b5cbf5-cf42-4579-9b91-4311c00e646a",
+              "city": "Gramado",
+              "latitude": -29.36,
+              "longitude": -50.87
             },
             {
-                "city": "Cuiabá",
-                "latitude": -15.59,
-                "longitude": -56.09
+              "id": "57c81d30-ba67-46a9-bd0b-fd182293124c",
+              "city": "Cuiabá",
+              "latitude": -15.59,
+              "longitude": -56.09
             },
             {
-                "city": "Recife",
-                "latitude": -8.05,
-                "longitude": -34.88
+              "id": "37d33aca-78d8-46c7-83d7-2de974820998",
+              "city": "Recife",
+              "latitude": -8.05,
+              "longitude": -34.88
             },
             {
-                "city": "Manaus",
-                "latitude": -3.10,
-                "longitude": -60.02
+              "id": "b41fc62d-3481-4586-a2b3-fd52b1b614ef",
+              "city": "Manaus",
+              "latitude": -3.1,
+              "longitude": -60.02
             }
         ]
     },
@@ -36,19 +41,22 @@
         "country": "Canadá",
         "cities": [
             {
-                "city": "Montreal",
-                "latitude": 45.51,
-                "longitude": -73.65
+              "id": "a73a272a-3853-4e38-a711-9b688a11d584",
+              "city": "Montreal",
+              "latitude": 45.51,
+              "longitude": -73.65
             },
             {
-                "city": "Ottawa",
-                "latitude": 45.42,
-                "longitude": -75.69
+              "id": "a6bf277c-5e8e-4522-92d5-cd19995b877e",
+              "city": "Ottawa",
+              "latitude": 45.42,
+              "longitude": -75.69
             },
             {
-                "city": "Vancouver",
-                "latitude": 49.30,
-                "longitude": -123.10
+              "id": "17e3070b-4797-4373-9cdb-c4b11f49b55b",
+              "city": "Vancouver",
+              "latitude": 49.3,
+              "longitude": -123.1
             }
         ]
     },
@@ -57,9 +65,10 @@
         "country": "Egito",
         "cities": [
             {
-                "city": "Cairo",
-                "latitude": 30.04,
-                "longitude":  31.24
+              "id": "40802044-a5b7-406d-8e7b-0e2de1e8370f",
+              "city": "Cairo",
+              "latitude": 30.04,
+              "longitude": 31.24
             }
         ]
     },
@@ -68,14 +77,16 @@
         "country": "Bélgica",
         "cities": [
             {
-                "city": "Bruxelas",
-                "latitude": 50.83,
-                "longitude": 4.35
+              "id": "deec7e65-a736-455a-9c06-ed42faaaa41a",
+              "city": "Bruxelas",
+              "latitude": 50.83,
+              "longitude": 4.35
             },
             {
-                "city": "Bruges",
-                "latitude": 51.2,
-                "longitude": 3.21
+              "id": "9fe39c8a-f4dd-4f67-8de5-2d8866271a37",
+              "city": "Bruges",
+              "latitude": 51.2,
+              "longitude": 3.21
             }
         ]
     },
@@ -84,19 +95,22 @@
         "country": "Japão",
         "cities": [
             {
-                "city": "Tóquio",
-                "latitude": 35.68,
-                "longitude": 139.69
+              "id": "d6f783f8-99a5-490f-92d7-c9ab34fdf440",
+              "city": "Tóquio",
+              "latitude": 35.68,
+              "longitude": 139.69
             },
             {
-                "city": "Quioto",
-                "latitude": 35.01,
-                "longitude": 135.76
+              "id": "398c846c-543f-4afe-83dd-6aaf8dd69d60",
+              "city": "Quioto",
+              "latitude": 35.01,
+              "longitude": 135.76
             },
             {
-                "city": "Osaka",
-                "latitude": 34.69,
-                "longitude": 135.50
+              "id": "cdd32780-68e4-4a5b-af46-beca018b7762",
+              "city": "Osaka",
+              "latitude": 34.69,
+              "longitude": 135.5
             }
         ]
     }

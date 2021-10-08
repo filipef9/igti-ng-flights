@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Country } from './country.model';
-import { CountriesService } from './countries.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CountriesService } from './countries.service';
+import { City, Country } from './country.model';
+
 
 @Component({
   selector: 'app-root',
@@ -14,14 +14,18 @@ export class AppComponent implements OnInit {
   private defaultCountryId: string;
 
   countries: Country[];
+  citiesFrom: City[];
+  citiesTo: City[];
+
   definirVooForm: FormGroup;
 
   constructor(
     private countriesService: CountriesService,
     private fb: FormBuilder
-  ) { 
+  ) {
     this.definirVooForm = this.fb.group({
       paisDeOrigem: [null],
+      cidadeDeOrigem: [null],
       paisDeDestino: [null]
     });
   }
@@ -36,13 +40,30 @@ export class AppComponent implements OnInit {
           .find((country: Country) => country.country === 'Brasil')
           .id;
 
+        this.citiesFrom = this.countries.find((c: Country) => c.id === this.defaultCountryId).cities;
+
         this.setDefaultsDefinirVooForm();
     });
   }
 
   private setDefaultsDefinirVooForm(): void {
+    const defaultCityId = this.citiesFrom[0].id;
+
     this.definirVooForm.get('paisDeOrigem').patchValue(this.defaultCountryId);
+    this.definirVooForm.get('paisDeOrigem').valueChanges
+      .subscribe((countryId: string) => {
+        this.citiesFrom = this.onCountryChanged(countryId);
+        this.definirVooForm.get('cidadeDeOrigem').patchValue(this.citiesFrom[0].id);
+      });
+
     this.definirVooForm.get('paisDeDestino').patchValue(this.defaultCountryId);
+
+    this.definirVooForm.get('cidadeDeOrigem').patchValue(defaultCityId);
+
+  }
+
+  private onCountryChanged(countryId: string): City[] {
+    return this.countries.find((c: Country) => c.id === countryId)?.cities;
   }
 
 }
