@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
   precoPorCrianca: number;
 
   milhas: number;
+  valorAbatidoPorMilhas: number;
 
   definirVooForm: FormGroup;
 
@@ -146,6 +147,7 @@ export class AppComponent implements OnInit {
     }
 
     this.milhas = flightForm.milhas;
+    this.valorAbatidoPorMilhas = this.milhas * 0.02;
 
     this.showResumoVoo = true;
   }
