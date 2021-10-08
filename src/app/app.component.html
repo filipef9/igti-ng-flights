@@ -48,23 +48,23 @@
         </div>
       </div>
 
-      <div>
+      <div class="mt-3">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="classeOption" id="classeEconomica" value="classeEconomica">
+          <input id="classeEconomica" class="form-check-input" type="radio" name="classeOption" value="classeEconomica" formControlName="tipoVoo">
           <label class="form-check-label" for="classeEconomica">Econômica</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="classeOption" id="classeExecutiva" value="classeExecutiva">
+          <input id="classeExecutiva" class="form-check-input" type="radio" name="classeOption" value="classeExecutiva" formControlName="tipoVoo">
           <label class="form-check-label" for="classeExecutiva">Executiva</label>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-3">
         <label for="milhas">Utilizar 0 milhas:</label>
         <input type="number" class="form-control" id="milhas">
       </div>
 
-      <div>
+      <div class="mt-3">
         <button class="btn btn-primary">Continuar</button>
       </div>
     </form>
@@ -102,6 +102,15 @@
     
     <div>
       <span>{{ quantidadeAdultos }} adultos(s), {{ quantidadeCriancas }} criança(s)</span>
+    </div>
+
+    <div class="row">
+      <div class="col-5">
+        <span class="font-weight-bold">Tipo de vôo:</span>
+      </div>
+      <div class="col-7">
+        <span>{{ tipoVoo }}</span>
+      </div>
     </div>
   </div>
 </div>

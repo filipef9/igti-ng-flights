@@ -4,6 +4,7 @@ import { CountriesService } from './countries.service';
 import { City, Country } from './country.model';
 import { FlightForm } from './flight.model';
 
+const DEFAULT_TIPO_VOO = 'classeEconomica';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,8 @@ export class AppComponent implements OnInit {
   quantidadeAdultos: number;
   quantidadeCriancas: number;
 
+  tipoVoo: string;
+
   definirVooForm: FormGroup;
 
   showResumoVoo: boolean;
@@ -41,12 +44,14 @@ export class AppComponent implements OnInit {
       idPaisDeOrigem: [null],
       idCidadeDeOrigem: [null],
       idPaisDeDestino: [null],
-      idCidadeDeDestino: [null]
+      idCidadeDeDestino: [null],
+      tipoVoo: [DEFAULT_TIPO_VOO]
     });
 
     this.distance = 0;
     this.quantidadeAdultos = 1;
     this.quantidadeCriancas = 0;
+    this.tipoVoo = '';
 
     this.showResumoVoo = false;
   }
@@ -109,6 +114,14 @@ export class AppComponent implements OnInit {
       this.selectedCityTo.latitude,
       this.selectedCityTo.longitude
     );
+
+    if (flightForm.tipoVoo === 'classeEconomica') {
+      this.tipoVoo = 'Classe Econômica';
+    }
+
+    if (flightForm.tipoVoo === 'classeExecutiva') {
+      this.tipoVoo = 'Classe Executiva';
+    }
 
     this.showResumoVoo = true;
   }

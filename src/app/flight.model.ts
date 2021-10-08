@@ -3,4 +3,5 @@ export interface FlightForm {
   idCidadeDeOrigem: string;
   idPaisDeDestino: string;
   idCidadeDeDestino: string;
+  tipoVoo: string;
 }
