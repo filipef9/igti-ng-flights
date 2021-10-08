@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
   citiesTo: City[];
   selectedCityTo: City;
 
+  distance: number;
+
   definirVooForm: FormGroup;
 
   showResumoVoo: boolean;
@@ -94,7 +96,53 @@ export class AppComponent implements OnInit {
     this.selectedCountryTo = this.countries.find((c: Country) => c.id === flightForm.idPaisDeDestino);
     this.selectedCityTo = this.selectedCountryTo.cities.find((c: City) => c.id === flightForm.idCidadeDeDestino);
 
+    this.distance = this.getDistance(
+      this.selectedCityFrom.latitude,
+      this.selectedCityFrom.longitude,
+      this.selectedCityTo.latitude,
+      this.selectedCityTo.longitude
+    );
+
     this.showResumoVoo = true;
+  }
+
+  private getDistance(
+    originLatitude: number,
+    originLongitude: number,
+    destinationLatitude: number,
+    destinationLongitude: number
+  ): number {
+    const EARTH_RADIUS = 6_371.071; // Earth
+
+    const diffLatitudeRadians = this.degreesToRadians(
+      destinationLatitude - originLatitude
+    );
+
+    const diffLongitudeRadians = this.degreesToRadians(
+      destinationLongitude - originLongitude
+    );
+
+    const originLatitudeRadians = this.degreesToRadians(originLatitude);
+
+    const destinationLatitudeRadians = this.degreesToRadians(destinationLatitude);
+
+    const kmDistance =
+      2 * EARTH_RADIUS * Math.asin(
+        Math.sqrt(
+          Math.sin(diffLatitudeRadians / 2) *
+          Math.sin(diffLatitudeRadians / 2) +
+          Math.cos(originLatitudeRadians) *
+          Math.cos(destinationLatitudeRadians) *
+          Math.sin(diffLongitudeRadians / 2) *
+          Math.sin(diffLongitudeRadians / 2)
+      )
+    );
+
+    return kmDistance;
+  }
+
+  private degreesToRadians(degrees: number): number {
+    return (degrees * Math.PI) / 180.0;
   }
 
 }
