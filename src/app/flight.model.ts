@@ -4,4 +4,5 @@ export interface FlightForm {
   idPaisDeDestino: string;
   idCidadeDeDestino: string;
   tipoVoo: string;
+  milhas: number;
 }

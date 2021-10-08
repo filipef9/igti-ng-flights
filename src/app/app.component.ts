@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
   precoPorAdulto: number;
   precoPorCrianca: number;
 
+  milhas: number;
+
   definirVooForm: FormGroup;
 
   showResumoVoo: boolean;
@@ -48,13 +50,15 @@ export class AppComponent implements OnInit {
       idCidadeDeOrigem: [null],
       idPaisDeDestino: [null],
       idCidadeDeDestino: [null],
-      tipoVoo: [DEFAULT_TIPO_VOO]
+      tipoVoo: [DEFAULT_TIPO_VOO],
+      milhas: [0]
     });
 
     this.distance = 0;
     this.quantidadeAdultos = 1;
     this.quantidadeCriancas = 0;
     this.tipoVoo = '';
+    this.milhas = 0;
 
     this.showResumoVoo = false;
   }
@@ -80,14 +84,14 @@ export class AppComponent implements OnInit {
   private setDefaultsDefinirVooForm(): void {
     this.definirVooForm.get('idPaisDeOrigem').patchValue(this.defaultCountryId);
     this.definirVooForm.get('idPaisDeOrigem').valueChanges
-    .subscribe((countryId: string) => {
+      .subscribe((countryId: string) => {
       this.citiesFrom = this.onCountryChanged(countryId);
       this.definirVooForm.get('idCidadeDeOrigem').patchValue(this.citiesFrom[0].id);
     });
 
     this.definirVooForm.get('idPaisDeDestino').patchValue(this.defaultCountryId);
     this.definirVooForm.get('idPaisDeDestino').valueChanges
-    .subscribe((countryId: string) => {
+      .subscribe((countryId: string) => {
       this.citiesTo = this.onCountryChanged(countryId);
       this.definirVooForm.get('idCidadeDeDestino').patchValue(this.citiesTo[0].id);
     });
@@ -96,6 +100,9 @@ export class AppComponent implements OnInit {
 
     this.definirVooForm.get('idCidadeDeOrigem').patchValue(defaultCityId);
     this.definirVooForm.get('idCidadeDeDestino').patchValue(defaultCityId);
+
+    this.definirVooForm.get('milhas').valueChanges
+      .subscribe((quantidadeMilhas: number) => this.milhas = quantidadeMilhas);
   }
 
   private onCountryChanged(countryId: string): City[] {
@@ -137,6 +144,8 @@ export class AppComponent implements OnInit {
       this.precoPorAdulto *= 1.8;
       this.precoPorCrianca *= 1.4;
     }
+
+    this.milhas = flightForm.milhas;
 
     this.showResumoVoo = true;
   }
